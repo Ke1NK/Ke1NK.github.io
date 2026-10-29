@@ -1,0 +1,458 @@
+<title>Konstantin Kan CV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single centered column (max 880px), sticky bar, hero with portrait + KPI row, sections as soft bands */
+:root{
+  --bg:#F4F6F5; --surface:#FFFFFF; --ink:#121816; --muted:#5B6662; --line:#DDE3E0;
+  --accent:#0B7A62; --accent-soft:#E2F1EC; --chip:#EDF1EF;
+  --f-display:"Unbounded","Onest",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1312; --surface:#161D1B; --ink:#E9EEEC; --muted:#97A39F; --line:#26302D;
+  --accent:#3CC9A3; --accent-soft:#16302A; --chip:#1D2624; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1312; --surface:#161D1B; --ink:#E9EEEC; --muted:#97A39F; --line:#26302D;
+  --accent:#3CC9A3; --accent-soft:#16302A; --chip:#1D2624; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:880px;margin:0 auto}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.brand{font-family:var(--f-display);font-weight:500;font-size:15px;letter-spacing:.01em}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.seg{display:inline-flex;background:var(--chip);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;padding:6px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .08)}
+.seg button small{font-weight:400;color:var(--muted);margin-left:4px}
+.bar-right{display:flex;align-items:center;gap:10px}
+@media (max-width:560px){.status span{display:none}}
+
+.hero{padding-block:44px 28px;display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:center}
+.portrait{width:200px;aspect-ratio:1;max-width:100%;border-radius:28px;object-fit:cover;background:var(--chip)}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,6vw,54px);line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+.tagline{font-size:clamp(18px,2.4vw,21px);font-weight:600;margin:0 0 10px;text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:60ch}
+@media (max-width:680px){.hero{grid-template-columns:1fr;text-align:left;gap:22px;padding-block:28px 20px}.portrait{width:132px;border-radius:22px}}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:22px}
+.kpi{padding:20px 16px 18px;border-left:1px solid var(--line);min-width:0}
+.kpi:first-child{border-left:0;padding-left:0}
+.kpi b{display:block;font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3.6vw,34px);color:var(--accent);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.35}
+@media (max-width:620px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi:nth-child(3){border-left:0;padding-left:0}.kpi:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.contacts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:14px;text-decoration:none;color:var(--ink);cursor:pointer}
+.pill.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill .k{color:var(--muted);font-size:12.5px}
+.pill.primary .k{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.toast{font-size:13px;color:var(--accent);min-height:20px;margin:4px 0 0}
+
+section{padding-block:34px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+h2{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;margin:0;text-wrap:balance}
+.sec-label{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.facts{background:var(--surface);border-radius:var(--r);border:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 22px;border-top:1px solid var(--line)}
+.fact:first-child{border-top:0}
+.fact dt{color:var(--muted);font-size:14px}
+.fact dd{margin:0;min-width:0}
+.fact dd strong{font-weight:600}
+@media (max-width:560px){.fact{grid-template-columns:1fr;gap:4px;padding:14px 18px}}
+
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.case .co{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.case h3{margin:0;font-size:17px;line-height:1.3;font-weight:600;text-wrap:balance}
+.case .num{font-family:var(--f-display);font-weight:700;font-size:28px;color:var(--accent);letter-spacing:-.02em;line-height:1}
+.case p{margin:0;color:var(--muted);font-size:14.5px}
+@media (max-width:760px){.cases{grid-template-columns:1fr}}
+
+.roles{display:flex;flex-direction:column;gap:0}
+.role{display:grid;grid-template-columns:120px 1fr;gap:20px;padding-block:22px;border-top:1px dashed var(--line)}
+.role:first-child{border-top:0;padding-top:4px}
+.when{font-family:var(--f-mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.role-body{min-width:0}
+.role h3{margin:0;font-size:18px;font-weight:600;line-height:1.3}
+.role .org{color:var(--muted);font-size:14.5px;margin:2px 0 8px}
+.role .sum{margin:0}
+.role ul{margin:10px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.role li::marker{color:var(--accent)}
+.res{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.res span{background:var(--accent-soft);color:var(--ink);font-size:13px;padding:4px 10px;border-radius:999px}
+@media (max-width:560px){.role{grid-template-columns:1fr;gap:4px}}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.skills h3{font-size:14px;font-weight:600;margin:0 0 10px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:14px}
+@media (max-width:620px){.skills{grid-template-columns:1fr}}
+
+.edu{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.edu li{display:grid;grid-template-columns:120px 1fr;gap:20px}
+@media (max-width:560px){.edu li{grid-template-columns:1fr;gap:0}}
+
+.cta{background:var(--ink);color:var(--bg);border-radius:24px;padding:30px;margin-block:10px 40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.cta h2{color:var(--bg)}
+.cta p{margin:6px 0 0;color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.cta .pill{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+.cta .pill .k{color:color-mix(in srgb,var(--bg) 65%,transparent)}
+.cta .contacts{margin:0}
+footer{color:var(--muted);font-size:13px;padding-bottom:28px}
+@media (prefers-reduced-motion:no-preference){.fade{animation:fade .5s ease both}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}}
+</style>
+<style>
+/* Shared: focus chips + welcome popup. Uses each variant's own tokens. */
+.focusbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 18px;grid-column:1 / -1}
+.fb-label{font-size:13px;color:var(--muted);margin-right:4px}
+.focusbar button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 13px;font-size:13.5px;cursor:pointer}
+.focusbar button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pop{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow-y:auto;
+  background:rgb(10 12 14 / .45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+html.pop-open body{overflow:hidden}
+.pop-card{position:relative;width:100%;max-width:520px;background:var(--surface,var(--tile,var(--bg)));color:var(--ink);border-radius:28px;padding:30px 24px 24px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;box-shadow:0 30px 80px rgb(0 0 0 / .28)}
+@media (prefers-reduced-motion:no-preference){.pop-card{animation:popin .35s cubic-bezier(.2,.8,.2,1) both}@keyframes popin{from{transform:translateY(12px) scale(.98);opacity:.6}to{transform:none;opacity:1}}}
+.pop-x{position:absolute;top:12px;right:14px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
+.pop-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 15%}
+.pop-name{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:-.01em;margin:4px 0 0}
+.pop-sub{margin:0;color:var(--muted);font-size:15px}
+.pop-seg{display:inline-flex;background:color-mix(in srgb,var(--ink) 7%,transparent);border-radius:999px;padding:4px;gap:2px;max-width:100%}
+.pop-seg button{border:0;background:transparent;color:var(--muted);padding:9px 18px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer}
+.pop-seg button small{font-weight:400;margin-left:4px}
+.pop-seg button[aria-pressed="true"]{background:var(--surface,var(--tile,var(--bg)));color:var(--ink);box-shadow:0 1px 4px rgb(0 0 0 / .14)}
+.pop-hint{margin:0;color:var(--muted);font-size:14px;max-width:42ch}
+.pop-q{margin:8px 0 0;font-weight:700;font-size:16px}
+.pop-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.pop-grid button{border:1.5px solid transparent;background:color-mix(in srgb,var(--ink) 5%,transparent);color:var(--ink);border-radius:18px;padding:14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+.pop-grid button:hover{border-color:var(--line)}
+.pop-grid button.on{border-color:var(--accent)}
+.pop-grid b{font-size:15.5px;line-height:1.25}
+.pop-grid span{font-size:13px;color:var(--muted);line-height:1.35}
+@media (max-width:420px){.pop-grid{grid-template-columns:1fr}.pop-seg button{padding:8px 12px;font-size:14px}}
+</style>
+<header class="bar"><div class="wrap">
+  <div class="brand">Konstantin Kan</div>
+  <div class="bar-right">
+    <div class="status"><i class="dot"></i><span data-t="status"></span></div>
+    <div class="seg" role="group" aria-label="Language">
+      <button type="button" id="lang-en" data-lang="en">EN</button>
+      <button type="button" id="lang-ru" data-lang="ru">RU</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <img class="portrait" src="data:image/jpeg;base64,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" alt="Konstantin Kan">
+    <div>
+      <p class="eyebrow" data-t="eyebrow"></p>
+      <h1 data-t="name"></h1>
+      <p class="tagline" data-t="tagline"></p>
+      <p class="lede" data-t="lede"></p>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="contacts">
+    <button type="button" class="pill primary" id="copy-email"><span class="k">Email</span>konstantin.kan727@gmail.com</button>
+    <a class="pill" href="https://www.linkedin.com/in/konstantin-kan-b0612133/" target="_blank" rel="noopener"><span class="k">LinkedIn</span>konstantin-kan</a>
+    <span class="pill"><span class="k" data-t="phone"></span>+7 701 524 5180</span>
+  </div>
+  <p class="toast" id="toast" aria-live="polite"></p>
+
+  <section id="profile">
+    <div class="sec-head"><h2 data-t="profileTitle"></h2><span class="sec-label" data-t="profileLabel"></span></div>
+    <dl class="facts" id="facts"></dl>
+  </section>
+
+  <section id="results">
+    <div class="sec-head"><h2 data-t="casesTitle"></h2><span class="sec-label" data-t="casesLabel"></span></div>
+    <div class="cases" id="cases"></div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <h2 data-t="expTitle"></h2>
+      <div class="seg" role="group" aria-label="Detail level">
+        <button type="button" id="mode-short" data-mode="short"></button>
+        <button type="button" id="mode-full" data-mode="full"></button>
+      </div>
+    </div>
+    <div class="roles" id="roles"></div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2 data-t="skillsTitle"></h2></div>
+    <div class="skills" id="skillgrid"></div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2 data-t="eduTitle"></h2></div>
+    <ul class="edu" id="edu"></ul>
+  </section>
+
+  <div class="cta">
+    <div><h2 data-t="ctaTitle"></h2><p data-t="ctaText"></p></div>
+    <div class="contacts">
+      <button type="button" class="pill" id="copy-email-2"><span class="k">Email</span>konstantin.kan727@gmail.com</button>
+      <a class="pill" href="https://www.linkedin.com/in/konstantin-kan-b0612133/" target="_blank" rel="noopener"><span class="k">LinkedIn</span>konstantin-kan</a>
+    </div>
+  </div>
+  <footer data-t="footer"></footer>
+</main>
+<script>
+const T = {
+  en: {
+    status: "Open to marketing & growth roles",
+    eyebrow: "Head of Marketing · Kazakhstan Chess Federation",
+    name: "Konstantin Kan",
+    tagline: "Growth marketing for consumer businesses in Central Asia.",
+    lede: "10+ years across fintech, aviation, food-tech and food service. I launch products from zero, adapt global playbooks to local markets and tie every campaign to customers, frequency and ROI.",
+    phone: "Phone",
+    kpis: [["60K+","active customers at launch, Airba Fresh"],["650%","ROMI on grocery delivery launch"],["$11M","regional budget owned at Visa"],["6","markets led across Central Asia & Azerbaijan"]],
+    profileTitle: "The essentials in 30 seconds.", profileLabel: "Profile",
+    facts: [
+      ["Looking for","<strong>Head of Marketing, Marketing & Growth Lead, Marketing Director.</strong>"],
+      ["Scale","Budgets up to $11M · teams up to 32 people · 6 countries"],
+      ["Industries","Payments, banking, aviation, online grocery, QSR, hospitality"],
+      ["Strengths","Zero-to-one launches, full-funnel growth, co-funded partnerships with global brands"],
+      ["Based in","Almaty · open to hybrid work and regional travel"],
+      ["Languages","Russian (native), English (C1), Kazakh (B1)"]
+    ],
+    casesTitle: "Selected results.", casesLabel: "Proof",
+    cases: [
+      {co:"Airba Fresh", num:"60K+", h:"Launched online grocery delivery in Almaty from zero", p:"Positioning, pricing, full funnel and channel mix. Top-5 Food & Drink app, 4.9 rating, 2 orders per customer a month, +120% average order."},
+      {co:"Visa", num:"+3%", h:"Tokenized payments activation in 7 months", p:"Apple Pay, Google Pay and Garmin Pay campaigns with banks and fintechs across Central Asia. FIFA, F1, Disney and Olympic platforms turned into co-funded campaigns."},
+      {co:"Bank Astana", num:"22K", h:"Warner Bros. cards issued in 3 weeks", p:"Co-branded cards with Warner Bros., Wargaming and Rovio: 37,000 World of Tanks cards in 4 months, first children's cards in Kazakhstan, Best Mobile Bank 2017."}
+    ],
+    expTitle: "Experience.", short: "Short", full: "Detailed",
+    skillsTitle: "Skills & tools.", eduTitle: "Education.",
+    ctaTitle: "Let's talk.", ctaText: "Email is the fastest way to reach me.",
+    footer: "Konstantin Kan · Almaty · 2026",
+    copied: "Email copied.", copyFail: "Couldn't copy. Select the address and copy it manually.",
+    roles: [
+      {y:"2026 – now", t:"Head of Marketing", o:"Kazakhstan Chess Federation · Freedom Holding", s:"Digital growth strategy for the federation within the Freedom Holding ecosystem.",
+       b:["Own channels, content, KPIs and reporting to the First Vice President","Lead marketing for flagship events: Federation Awards, World Chess Day, WUTCC","Keep brand communications consistent across PR, commercial and GR teams"], r:[]},
+      {y:"2024 – 2025", t:"Marketing Director, Central Asia & Azerbaijan", o:"Visa", s:"Brand, performance and partner-driven growth in 6 markets with a budget of up to $11M.",
+       b:["Led marketing in Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, Turkmenistan and Azerbaijan","Grew tokenized payment activation through joint campaigns with banking and fintech partners","Adapted global campaigns into local acquisition, activation and usage plans; owned ROI","Turned FIFA, Formula 1, Disney and Olympic platforms into co-funded partner campaigns; managed creative, media and performance agencies"], r:["+3% token activation in 7 months","$11M budget","6 markets"]},
+      {y:"2023 – 2024", t:"Marketing & Sales Director", o:"8 Lakes Park Resort (8 Ozer)", s:"Marketing, sales and leisure for a resort and the Palm Valley residential project.",
+       b:["Led marketing, sales and leisure teams of 32 people; built strategy, budget and department structure","Ran the full mix: Meta, Google Ads, TikTok, Yandex Direct, SEO, email, influencers, OOH, DOOH, radio, events","Developed brand partnerships and community activations"], r:["Team of 32"]},
+      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh · online grocery delivery", s:"Built marketing and go-to-market from scratch to launch the service in Almaty.",
+       b:["Defined product positioning and the pricing model","Owned the full funnel from awareness to referral, including unit economics and LTV","Built an omnichannel growth engine: performance, OOH, SEO, influencers, CRM and loyalty","Managed P&L, marketing investment and channel efficiency"], r:["60K+ active customers","Top-5 Food & Drink app, 4.9","650% ROMI","2 orders / month","+120% AOV"]},
+      {y:"2019 – 2022", t:"Senior Marketing & Sales Executive", o:"Air Astana", s:"Marketing for 7 international markets and new route launches.",
+       b:["Ran marketing for the UK, Turkey, Thailand, UAE, Germany, France and Uzbekistan","Launched and promoted new routes (Montenegro, Thailand, Sri Lanka, China) against load-factor targets","Acquired passengers through paid channels and influencers; produced brand films and activations"], r:["7 markets"]},
+      {y:"2016 – 2019", t:"Head of Digital Marketing", o:"Bank Astana", s:"Digital marketing for B2C cards and loans with a team of 7.",
+       b:["Launched and scaled B2C cards and loans","Ran co-branded partnerships with Warner Bros., Wargaming and Rovio","Took part in the bank's full rebrand"], r:["37K World of Tanks cards in 4 months","22K Warner Bros. cards in 3 weeks","Best Mobile Bank 2017"]},
+      {y:"2014 – 2016", t:"Marketing & Brand Communications Manager", o:"Burger King (QSR LLP)", s:"Traffic and launch marketing for a QSR chain in Kazakhstan.",
+       b:["Drove restaurant traffic through digital, local and promo campaigns","Delivered launch marketing for 12 new restaurants: POSM, OOH, local activations","Scaled social media presence and engagement"], r:["12 openings"]}
+    ],
+    skills: [
+      ["Marketing",["Growth marketing","Performance","CRM & retention","Loyalty & promo","Brand management","Go-to-market","Co-marketing","Influencers","ATL / BTL"]],
+      ["Growth economics",["CAC","LTV","ROMI","AOV","Funnel analysis","Cohorts","A/B testing"]],
+      ["Tools",["Google Analytics","Google Ads","Meta Ads","Yandex Direct","Excel / Sheets","SQL","Power BI"]],
+      ["Ways of working",["Test & learn","Budgeting","Agency management","Agile","Team leadership"]]
+    ],
+    edu: [["2012","BSc in International Business, Marketing · Rouen Business School"],["2013","Degree in Finance · International Academy of Business"],["2022–2023","Product Management (ProductStar) · Strategic Marketing mentorship (Toppols.io)"]]
+  },
+  ru: {
+    status: "Открыт к ролям в маркетинге и росте",
+    eyebrow: "Head of Marketing · Казахстанская федерация шахмат",
+    name: "Константин Кан",
+    tagline: "Growth-маркетинг для B2C-бизнеса в Центральной Азии.",
+    lede: "Более 10 лет в финтехе, авиации, food-tech и общепите. Запускаю продукты с нуля, адаптирую глобальные плейбуки под локальный рынок и привязываю каждую кампанию к клиентам, частоте и ROI.",
+    phone: "Телефон",
+    kpis: [["60K+","активных клиентов на запуске Airba Fresh"],["650%","ROMI на запуске доставки продуктов"],["$11M","региональный бюджет в Visa"],["6","рынков Центральной Азии и Азербайджана"]],
+    profileTitle: "Главное за 30 секунд.", profileLabel: "Профиль",
+    facts: [
+      ["Ищу","<strong>Head of Marketing, Marketing & Growth Lead, директор по маркетингу.</strong>"],
+      ["Масштаб","Бюджеты до $11M · команды до 32 человек · 6 стран"],
+      ["Индустрии","Платежи, банки, авиация, онлайн-доставка продуктов, QSR, гостеприимство"],
+      ["Сильные стороны","Запуски с нуля, рост по всей воронке, кофинансируемые партнёрства с глобальными брендами"],
+      ["Где","Алматы · гибрид и командировки по региону"],
+      ["Языки","Русский (родной), английский (C1), казахский (B1)"]
+    ],
+    casesTitle: "Избранные результаты.", casesLabel: "Кейсы",
+    cases: [
+      {co:"Airba Fresh", num:"60K+", h:"Запуск онлайн-доставки продуктов в Алматы с нуля", p:"Позиционирование, ценообразование, вся воронка и микс каналов. Топ-5 в Food & Drink, рейтинг 4.9, 2 заказа на клиента в месяц, средний чек +120%."},
+      {co:"Visa", num:"+3%", h:"Рост активации токенизации за 7 месяцев", p:"Кампании Apple Pay, Google Pay и Garmin Pay с банками и финтехами Центральной Азии. Платформы FIFA, F1, Disney и Олимпиады превратил в кофинансируемые кампании."},
+      {co:"Банк Астаны", num:"22K", h:"Карт Warner Bros. за 3 недели", p:"Кобренды с Warner Bros., Wargaming и Rovio: 37 000 карт World of Tanks за 4 месяца, первые детские карты в Казахстане, «Лучший мобильный банк 2017»."}
+    ],
+    expTitle: "Опыт.", short: "Кратко", full: "Подробно",
+    skillsTitle: "Навыки и инструменты.", eduTitle: "Образование.",
+    ctaTitle: "Давайте обсудим.", ctaText: "Быстрее всего со мной связаться по почте.",
+    footer: "Константин Кан · Алматы · 2026",
+    copied: "Почта скопирована.", copyFail: "Не удалось скопировать. Выделите адрес и скопируйте вручную.",
+    roles: [
+      {y:"2026 – н.в.", t:"Head of Marketing", o:"Казахстанская федерация шахмат · Freedom Holding", s:"Digital-стратегия роста федерации в экосистеме Freedom Holding.",
+       b:["Отвечаю за каналы, контент, KPI и отчётность перед 1-м вице-президентом","Веду маркетинг ключевых событий: Awards, Всемирный день шахмат, WUTCC","Обеспечиваю единые бренд-коммуникации с PR, коммерцией и GR"], r:[]},
+      {y:"2024 – 2025", t:"Директор по маркетингу, Центральная Азия и Азербайджан", o:"Visa", s:"Бренд, performance и партнёрский рост на 6 рынках с бюджетом до $11M.",
+       b:["Руководил маркетингом в Казахстане, Кыргызстане, Узбекистане, Таджикистане, Туркменистане и Азербайджане","Растил активацию токенизации через совместные кампании с банками и финтехами","Адаптировал глобальные кампании в локальные планы по привлечению, активации и использованию; отвечал за ROI","Превращал платформы FIFA, Formula 1, Disney и Олимпиады в кофинансируемые кампании; управлял креативными, медийными и performance-агентствами"], r:["+3% активации токенов за 7 мес.","Бюджет $11M","6 рынков"]},
+      {y:"2023 – 2024", t:"Директор по маркетингу и продажам", o:"8 Озер", s:"Маркетинг, продажи и досуг курорта и коттеджного городка Palm Valley.",
+       b:["Руководил отделами маркетинга, продаж и досуга: 32 человека; выстроил стратегию, бюджет и структуру","Вёл весь микс: Meta, Google Ads, TikTok, Яндекс Директ, SEO, email, инфлюенсеры, OOH, DOOH, радио, ивенты","Развивал партнёрства с брендами и комьюнити-активации"], r:["Команда 32"]},
+      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh · онлайн-доставка продуктов", s:"С нуля построил маркетинг и go-to-market для запуска сервиса в Алматы.",
+       b:["Определил позиционирование и pricing-модель","Отвечал за всю воронку от awareness до referral, включая юнит-экономику и LTV","Построил омниканальную модель роста: performance, OOH, SEO, инфлюенсеры, CRM, лояльность","Управлял P&L, маркетинговыми инвестициями и эффективностью каналов"], r:["60K+ активных клиентов","Топ-5 Food & Drink, 4.9","ROMI 650%","2 заказа в месяц","Средний чек +120%"]},
+      {y:"2019 – 2022", t:"Senior Marketing & Sales Executive", o:"Air Astana", s:"Маркетинг на 7 международных рынках и запуск новых направлений.",
+       b:["Вёл маркетинг в Великобритании, Турции, Таиланде, ОАЭ, Германии, Франции и Узбекистане","Запускал и продвигал новые направления (Черногория, Таиланд, Шри-Ланка, Китай) под цели по загрузке","Привлекал пассажиров через платные каналы и инфлюенсеров; продюсировал имиджевые ролики и активации"], r:["7 рынков"]},
+      {y:"2016 – 2019", t:"Руководитель digital-маркетинга", o:"Банк Астаны", s:"Digital-маркетинг B2C-карт и кредитов, команда 7 человек.",
+       b:["Запускал и масштабировал B2C-карты и кредиты","Реализовал кобренды с Warner Bros., Wargaming и Rovio","Участвовал в полном ребрендинге банка"], r:["37K карт World of Tanks за 4 мес.","22K карт Warner Bros. за 3 недели","Лучший мобильный банк 2017"]},
+      {y:"2014 – 2016", t:"Менеджер по маркетингу и бренд-коммуникациям", o:"Burger King (ТОО QSR)", s:"Трафик и маркетинг открытий сети ресторанов в Казахстане.",
+       b:["Растил трафик ресторанов через digital, локальные и промо-кампании","Обеспечил маркетинг 12 открытий: POSM, OOH, локальные активации","Развил соцсети и вовлечённость"], r:["12 открытий"]}
+    ],
+    skills: [
+      ["Маркетинг",["Growth-маркетинг","Performance","CRM и удержание","Лояльность и промо","Бренд-менеджмент","Go-to-market","Ко-маркетинг","Инфлюенсеры","ATL / BTL"]],
+      ["Экономика роста",["CAC","LTV","ROMI","Средний чек","Анализ воронки","Когорты","A/B-тесты"]],
+      ["Инструменты",["Google Analytics","Google Ads","Meta Ads","Яндекс Директ","Excel / Sheets","SQL","Power BI"]],
+      ["Подход",["Test & learn","Бюджетирование","Управление агентствами","Agile","Руководство командой"]]
+    ],
+    edu: [["2012","BSc in International Business, Marketing · Rouen Business School"],["2013","Финансы · International Academy of Business"],["2022–2023","Product Management (ProductStar) · Strategic Marketing mentorship (Toppols.io)"]]
+  }
+};
+
+
+const FOCUS = {
+  en: {
+    general:{l:"General profile",d:"Growth, brand and partnerships in one plan",k:[0,1,2,3],c:[0,1,2],s:[0,1,2,3]},
+    growth:{l:"Growth & Performance",d:"Acquisition, CRM and unit economics",k:[0,1,3,2],c:[0,1,2],s:[1,0,2,3],
+      tag:"Acquisition, retention and unit economics for consumer apps.",
+      lede:"Launched online grocery delivery from zero to 60,000+ active customers ordering twice a month, with 650% ROMI. I run the full funnel and turn data into the next test."},
+    brand:{l:"Brand & Partnerships",d:"Brand, sponsorships and co-marketing",k:[2,3,1,0],c:[1,2,0],s:[0,3,1,2],
+      tag:"Brand platforms and partnerships that pay back.",
+      lede:"At Visa I turned FIFA, Formula 1, Disney and Olympic platforms into co-funded campaigns. At Bank Astana I built co-brands with Warner Bros., Wargaming and Rovio."},
+    fintech:{l:"Fintech & Payments",d:"Cards, tokenization and bank partners",k:[3,2,0,1],c:[1,2,0],s:[1,0,2,3],
+      tag:"Marketing that moves cards, activation and transactions.",
+      lede:"Led Visa marketing in 6 markets and digital marketing at Bank Astana: tokenization, co-branded cards and joint campaigns with banks and fintechs."}
+  },
+  ru: {
+    general:{l:"Общий профиль",d:"Рост, бренд и партнёрства в одном плане",k:[0,1,2,3],c:[0,1,2],s:[0,1,2,3]},
+    growth:{l:"Growth и performance",d:"Привлечение, CRM и юнит-экономика",k:[0,1,3,2],c:[0,1,2],s:[1,0,2,3],
+      tag:"Привлечение, удержание и юнит-экономика B2C-приложений.",
+      lede:"Запустил онлайн-доставку продуктов с нуля до 60 000+ активных клиентов с частотой 2 заказа в месяц и ROMI 650%. Веду всю воронку и превращаю данные в следующий тест."},
+    brand:{l:"Бренд и партнёрства",d:"Бренд, спонсорство и ко-маркетинг",k:[2,3,1,0],c:[1,2,0],s:[0,3,1,2],
+      tag:"Бренд-платформы и партнёрства, которые окупаются.",
+      lede:"В Visa превращал платформы FIFA, Formula 1, Disney и Олимпиады в кофинансируемые кампании. В Банке Астаны запустил кобренды с Warner Bros., Wargaming и Rovio."},
+    fintech:{l:"Финтех и платежи",d:"Карты, токенизация и банки-партнёры",k:[3,2,0,1],c:[1,2,0],s:[1,0,2,3],
+      tag:"Маркетинг, который двигает карты, активацию и транзакции.",
+      lede:"Руководил маркетингом Visa на 6 рынках и digital-маркетингом Банка Астаны: токенизация, кобренды и совместные кампании с банками и финтехами."}
+  }
+};
+const UI = {
+  en:{sub:"Choose language, format and focus",q:"Who are you hiring for?",min:"min",
+      hint:{short:"The essentials for a recruiter: profile, numbers, cases and a one-line view of each role.",full:"Everything above plus responsibilities and results for every role."},
+      focus:"Focus",close:"Close",open:"Open CV"},
+  ru:{sub:"Выберите язык, формат и направление",q:"Кто вам нужен?",min:"мин",
+      hint:{short:"Главное для рекрутера: профиль, цифры, кейсы и по строке на каждую роль.",full:"Всё то же плюс обязанности и результаты по каждой роли."},
+      focus:"Направление",close:"Закрыть",open:"Открыть резюме"}
+};
+const MINS = {short:2, full:5};
+let lang = "en", mode = "short", focus = "general";
+try { lang = localStorage.getItem("cv-lang") || lang; mode = localStorage.getItem("cv-mode") || mode; focus = localStorage.getItem("cv-focus") || focus; } catch(e) {}
+let fromLink = false;
+(function(){ const m = location.hash.slice(1).match(/^(en|ru)?-?(general|growth|brand|fintech)?$/);
+  if (m && (m[1] || m[2])) { if (m[1]) lang = m[1]; if (m[2]) focus = m[2]; fromLink = !!m[2]; } })();
+if (!FOCUS.en[focus]) focus = "general";
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $ = id => document.getElementById(id);
+
+function render() {
+  const base = T[lang], f = FOCUS[lang][focus];
+  const d = Object.assign({}, base, {
+    tagline: f.tag || base.tagline, lede: f.lede || base.lede,
+    kpis: f.k.map(i => base.kpis[i]), cases: f.c.map(i => base.cases[i]), skills: f.s.map(i => base.skills[i])
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = d[el.dataset.t]; });
+  renderFocusBar(); renderPop();
+  $("mode-short").textContent = d.short; $("mode-full").textContent = d.full;
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
+  $("kpis").innerHTML = d.kpis.map(k => `<div class="kpi"><b>${esc(k[0])}</b><span>${esc(k[1])}</span></div>`).join("");
+  $("facts").innerHTML = d.facts.map(f => `<div class="fact"><dt>${esc(f[0])}</dt><dd>${f[1]}</dd></div>`).join("");
+  $("cases").innerHTML = d.cases.map(c => `<article class="case"><span class="co">${esc(c.co)}</span><span class="num">${esc(c.num)}</span><h3>${esc(c.h)}</h3><p>${esc(c.p)}</p></article>`).join("");
+  $("roles").innerHTML = d.roles.map(r => `<article class="role fade"><div class="when">${esc(r.y)}</div><div class="role-body">
+      <h3>${esc(r.t)}</h3><p class="org">${esc(r.o)}</p>
+      ${mode === "short" ? `<p class="sum">${esc(r.s)}</p>` : `<p class="sum">${esc(r.s)}</p><ul>${r.b.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`}
+      ${r.r.length ? `<div class="res">${r.r.map(x => `<span>${esc(x)}</span>`).join("")}</div>` : ""}
+    </div></article>`).join("");
+  $("skillgrid").innerHTML = d.skills.map(g => `<div><h3>${esc(g[0])}</h3><div class="chips">${g[1].map(x => `<span>${esc(x)}</span>`).join("")}</div></div>`).join("");
+  $("edu").innerHTML = d.edu.map(e => `<li><span class="when">${esc(e[0])}</span><span>${esc(e[1])}</span></li>`).join("");
+}
+
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang; try { localStorage.setItem("cv-lang", lang); } catch(e) {} render();
+}));
+document.querySelectorAll("[data-mode]").forEach(b => b.addEventListener("click", () => {
+  mode = b.dataset.mode; try { localStorage.setItem("cv-mode", mode); } catch(e) {} render();
+}));
+function copyEmail() {
+  const email = "konstantin.kan727@gmail.com";
+  const done = ok => { $("toast").textContent = ok ? T[lang].copied : T[lang].copyFail; setTimeout(() => $("toast").textContent = "", 3000); };
+  try { navigator.clipboard.writeText(email).then(() => done(true), () => done(false)); } catch(e) { done(false); }
+}
+
+function setFocus(v){ focus = v; try { localStorage.setItem("cv-focus", focus); } catch(e) {} render(); }
+
+/* focus chips under the hero */
+const fbar = document.createElement("div"); fbar.className = "focusbar"; fbar.setAttribute("role","group");
+$("kpis").parentNode.insertBefore(fbar, $("kpis"));
+function renderFocusBar(){
+  fbar.setAttribute("aria-label", UI[lang].focus);
+  fbar.innerHTML = `<span class="fb-label">${esc(UI[lang].focus)}</span>` + Object.keys(FOCUS[lang]).map(k =>
+    `<button type="button" id="fb-${k}" data-focus="${k}" aria-pressed="${k===focus}">${esc(FOCUS[lang][k].l)}</button>`).join("");
+  fbar.querySelectorAll("[data-focus]").forEach(b => b.onclick = () => setFocus(b.dataset.focus));
+}
+
+/* welcome popup */
+const photoSrc = (document.querySelector(".portrait, .t-photo img") || {}).src || "";
+const pop = document.createElement("div"); pop.className = "pop"; pop.setAttribute("role","dialog"); pop.setAttribute("aria-modal","true");
+document.body.appendChild(pop);
+function renderPop(){
+  if (pop.hidden) return;
+  const u = UI[lang];
+  pop.innerHTML = `<div class="pop-card">
+    <button type="button" class="pop-x" id="pop-x" aria-label="${esc(u.close)}">×</button>
+    <img class="pop-photo" src="${photoSrc}" alt="">
+    <h2 class="pop-name">${esc(T[lang].name)}</h2>
+    <p class="pop-sub">${esc(u.sub)}</p>
+    <div class="pop-seg"><button type="button" id="pop-en" data-plang="en" aria-pressed="${lang==='en'}">English</button><button type="button" id="pop-ru" data-plang="ru" aria-pressed="${lang==='ru'}">Русский</button></div>
+    <div class="pop-seg"><button type="button" id="pop-short" data-pmode="short" aria-pressed="${mode==='short'}">${esc(T[lang].short)} <small>${MINS.short} ${u.min}</small></button><button type="button" id="pop-full" data-pmode="full" aria-pressed="${mode==='full'}">${esc(T[lang].full)} <small>${MINS.full} ${u.min}</small></button></div>
+    <p class="pop-hint">${esc(u.hint[mode])}</p>
+    <p class="pop-q">${esc(u.q)}</p>
+    <div class="pop-grid">${Object.keys(FOCUS[lang]).map(k => `<button type="button" id="pop-f-${k}" data-pfocus="${k}" class="${k===focus?'on':''}"><b>${esc(FOCUS[lang][k].l)}</b><span>${esc(FOCUS[lang][k].d)}</span></button>`).join("")}</div>
+  </div>`;
+  pop.querySelectorAll("[data-plang]").forEach(b => b.onclick = () => { lang = b.dataset.plang; try{localStorage.setItem("cv-lang",lang)}catch(e){} render(); });
+  pop.querySelectorAll("[data-pmode]").forEach(b => b.onclick = () => { mode = b.dataset.pmode; try{localStorage.setItem("cv-mode",mode)}catch(e){} render(); });
+  pop.querySelectorAll("[data-pfocus]").forEach(b => b.onclick = () => { closePop(); setFocus(b.dataset.pfocus); });
+  $("pop-x").onclick = closePop;
+}
+function closePop(){ pop.hidden = true; document.documentElement.classList.remove("pop-open"); try { sessionStorage.setItem("cv-pop","1"); } catch(e) {} }
+pop.addEventListener("click", e => { if (e.target === pop) closePop(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !pop.hidden) closePop(); });
+let seen = false; try { seen = sessionStorage.getItem("cv-pop") === "1"; } catch(e) {}
+if (seen || fromLink) pop.hidden = true; else document.documentElement.classList.add("pop-open");
+
+$("copy-email").addEventListener("click", copyEmail);
+$("copy-email-2").addEventListener("click", copyEmail);
+render();
+</script>
+
