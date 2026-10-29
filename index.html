@@ -86,6 +86,7 @@ h2{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,3vw,28px);l
 .case p{margin:0;color:var(--muted);font-size:14.5px}
 @media (max-width:760px){.cases{grid-template-columns:1fr}}
 
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}.proj .meta{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}.proj h3{margin:0;font-size:17px;font-weight:600;line-height:1.3}.proj p{margin:0;color:var(--muted);font-size:14.5px}@media (max-width:700px){.projects{grid-template-columns:1fr}}
 .roles{display:flex;flex-direction:column;gap:0}
 .role{display:grid;grid-template-columns:120px 1fr;gap:20px;padding-block:22px;border-top:1px dashed var(--line)}
 .role:first-child{border-top:0;padding-top:4px}
@@ -191,6 +192,11 @@ html.pop-open body{overflow:hidden}
     <div class="cases" id="cases"></div>
   </section>
 
+  <section id="projects-sec">
+    <div class="sec-head"><h2 data-t="projTitle"></h2><span class="sec-label" data-t="projLabel"></span></div>
+    <div class="projects" id="projects-list"></div>
+  </section>
+
   <section id="experience">
     <div class="sec-head">
       <h2 data-t="expTitle"></h2>
@@ -228,7 +234,7 @@ const T = {
     eyebrow: "Head of Marketing · Kazakhstan Chess Federation",
     name: "Konstantin Kan",
     tagline: "Growth marketing for consumer businesses in Central Asia.",
-    lede: "10+ years across fintech, aviation, food-tech and food service. I launch products from zero, adapt global playbooks to local markets and tie every campaign to customers, frequency and ROI.",
+    lede: "10+ years across fintech, aviation, food-tech and food service, starting at the largest ad agency in Central Asia. I launch products from zero, adapt global playbooks to local markets and tie every campaign to customers, frequency and ROI.",
     phone: "Phone",
     kpis: [["60K+","active customers at launch, Airba Fresh"],["650%","ROMI on grocery delivery launch"],["$11M","regional budget owned at Visa"],["6","markets led across Central Asia & Azerbaijan"]],
     profileTitle: "The essentials in 30 seconds.", profileLabel: "Profile",
@@ -241,8 +247,17 @@ const T = {
       ["Languages","Russian (native), English (C1), Kazakh (B1)"]
     ],
     casesTitle: "Selected results.", casesLabel: "Proof",
+    projTitle: "Projects I'm proud of.", projLabel: "Campaigns",
+    projects: [
+      {m:"Visa", h:"She's NEXT", p:"Three waves of a grant program for women entrepreneurs in Central Asia, across startup, existing business and IT categories."},
+      {m:"Visa", h:"Tokenization with NINETY ONE", p:"Campaign with Kazakhstan's best-known pop band to move everyday payments from QR to Apple Pay, Google Pay and Garmin Pay."},
+      {m:"Airba Fresh", h:"Launch event for 1,500 guests", p:"Grand opening with Technogym, Bosch, Samsung and LG as partners. Loyalty program, brand book and visual identity built for launch."},
+      {m:"Air Astana · 2020", h:"International Women's Day flight", p:"Limited chocolate collection and an onboard jazz performance for women passengers, built around art and aviation."},
+      {m:"Bank Astana · 2018", h:"Justice League premiere in Kazakhstan", p:"Private premiere where entry came with ordering a Bank Astana card, part of the Warner Bros. co-brand."},
+      {m:"Visa · partners", h:"Co-marketing with banks and merchants", p:"Joint campaigns and co-branded promotions with banks, merchants and digital platforms across Central Asia, from concept to value exchange."}
+    ],
     cases: [
-      {co:"Airba Fresh", num:"60K+", h:"Launched online grocery delivery in Almaty from zero", p:"Positioning, pricing, full funnel and channel mix. Top-5 Food & Drink app, 4.9 rating, 2 orders per customer a month, +120% average order."},
+      {co:"Airba Fresh", num:"60K+", h:"Launched online grocery delivery in Almaty from zero", p:"Positioning, pricing, full funnel and channel mix. Top-5 Food & Drink app, 4.9 rating, 2 orders per customer a month, +120% average order. 40% of new users placed 3+ orders within 90 days."},
       {co:"Visa", num:"+3%", h:"Tokenized payments activation in 7 months", p:"Apple Pay, Google Pay and Garmin Pay campaigns with banks and fintechs across Central Asia. FIFA, F1, Disney and Olympic platforms turned into co-funded campaigns."},
       {co:"Bank Astana", num:"22K", h:"Warner Bros. cards issued in 3 weeks", p:"Co-branded cards with Warner Bros., Wargaming and Rovio: 37,000 World of Tanks cards in 4 months, first children's cards in Kazakhstan, Best Mobile Bank 2017."}
     ],
@@ -258,8 +273,8 @@ const T = {
        b:["Led marketing in Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, Turkmenistan and Azerbaijan","Grew tokenized payment activation through joint campaigns with banking and fintech partners","Adapted global campaigns into local acquisition, activation and usage plans; owned ROI","Turned FIFA, Formula 1, Disney and Olympic platforms into co-funded partner campaigns; managed creative, media and performance agencies"], r:["+3% token activation in 7 months","$11M budget","6 markets"]},
       {y:"2023 – 2024", t:"Marketing & Sales Director", o:"8 Lakes Park Resort (8 Ozer)", s:"Marketing, sales and leisure for a resort and the Palm Valley residential project.",
        b:["Led marketing, sales and leisure teams of 32 people; built strategy, budget and department structure","Ran the full mix: Meta, Google Ads, TikTok, Yandex Direct, SEO, email, influencers, OOH, DOOH, radio, events","Developed brand partnerships and community activations"], r:["Team of 32"]},
-      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh · online grocery delivery", s:"Built marketing and go-to-market from scratch to launch the service in Almaty.",
-       b:["Defined product positioning and the pricing model","Owned the full funnel from awareness to referral, including unit economics and LTV","Built an omnichannel growth engine: performance, OOH, SEO, influencers, CRM and loyalty","Managed P&L, marketing investment and channel efficiency"], r:["60K+ active customers","Top-5 Food & Drink app, 4.9","650% ROMI","2 orders / month","+120% AOV"]},
+      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh (Technodom Group) · online grocery delivery", s:"Built marketing and go-to-market from scratch to launch the service in Almaty.",
+       b:["Defined product positioning and the pricing model","Owned the full funnel from awareness to referral, including unit economics and LTV","Built an omnichannel growth engine: performance, OOH, SEO, influencers, CRM and loyalty","Built and led a marketing team of 7; created the loyalty program, brand book and visual identity","Built a marketing dashboard for channel efficiency and CAC/LTV","Managed P&L, marketing investment and channel efficiency"], r:["60K+ active customers","Top-5 Food & Drink app, 4.9","650% ROMI","2 orders / month","40% made 3+ orders in 90 days","+120% AOV","2M+ impressions in Q1"]},
       {y:"2019 – 2022", t:"Senior Marketing & Sales Executive", o:"Air Astana", s:"Marketing for 7 international markets and new route launches.",
        b:["Ran marketing for the UK, Turkey, Thailand, UAE, Germany, France and Uzbekistan","Launched and promoted new routes (Montenegro, Thailand, Sri Lanka, China) against load-factor targets","Acquired passengers through paid channels and influencers; produced brand films and activations"], r:["7 markets"]},
       {y:"2016 – 2019", t:"Head of Digital Marketing", o:"Bank Astana", s:"Digital marketing for B2C cards and loans with a team of 7.",
@@ -280,7 +295,7 @@ const T = {
     eyebrow: "Head of Marketing · Казахстанская федерация шахмат",
     name: "Константин Кан",
     tagline: "Growth-маркетинг для B2C-бизнеса в Центральной Азии.",
-    lede: "Более 10 лет в финтехе, авиации, food-tech и общепите. Запускаю продукты с нуля, адаптирую глобальные плейбуки под локальный рынок и привязываю каждую кампанию к клиентам, частоте и ROI.",
+    lede: "Более 10 лет в финтехе, авиации, food-tech и общепите, начинал в крупнейшем рекламном агентстве Центральной Азии. Запускаю продукты с нуля, адаптирую глобальные плейбуки под локальный рынок и привязываю каждую кампанию к клиентам, частоте и ROI.",
     phone: "Телефон",
     kpis: [["60K+","активных клиентов на запуске Airba Fresh"],["650%","ROMI на запуске доставки продуктов"],["$11M","региональный бюджет в Visa"],["6","рынков Центральной Азии и Азербайджана"]],
     profileTitle: "Главное за 30 секунд.", profileLabel: "Профиль",
@@ -293,8 +308,17 @@ const T = {
       ["Языки","Русский (родной), английский (C1), казахский (B1)"]
     ],
     casesTitle: "Избранные результаты.", casesLabel: "Кейсы",
+    projTitle: "Проекты, которыми горжусь.", projLabel: "Кампании",
+    projects: [
+      {m:"Visa", h:"She's NEXT", p:"Три волны грантовой программы для женщин-предпринимателей Центральной Азии: стартапы, действующий бизнес и IT."},
+      {m:"Visa", h:"Токенизация с NINETY ONE", p:"Кампания с самой известной поп-группой Казахстана, чтобы перевести повседневные платежи с QR на Apple Pay, Google Pay и Garmin Pay."},
+      {m:"Airba Fresh", h:"Открытие на 1 500 гостей", p:"Гранд-опенинг с партнёрами Technogym, Bosch, Samsung и LG. К запуску сделали программу лояльности, брендбук и айдентику."},
+      {m:"Air Astana · 2020", h:"Рейс к 8 Марта", p:"Лимитированная коллекция шоколада и джазовое выступление на борту для пассажирок, на стыке искусства и авиации."},
+      {m:"Банк Астаны · 2018", h:"Премьера «Лиги справедливости» в Казахстане", p:"Закрытый показ, вход на который давал заказ карты Банка Астаны, в рамках кобренда с Warner Bros."},
+      {m:"Visa · партнёры", h:"Ко-маркетинг с банками и мерчантами", p:"Совместные кампании и кобренд-промо с банками, ритейлом и цифровыми платформами Центральной Азии: от концепции до обмена ценностью."}
+    ],
     cases: [
-      {co:"Airba Fresh", num:"60K+", h:"Запуск онлайн-доставки продуктов в Алматы с нуля", p:"Позиционирование, ценообразование, вся воронка и микс каналов. Топ-5 в Food & Drink, рейтинг 4.9, 2 заказа на клиента в месяц, средний чек +120%."},
+      {co:"Airba Fresh", num:"60K+", h:"Запуск онлайн-доставки продуктов в Алматы с нуля", p:"Позиционирование, ценообразование, вся воронка и микс каналов. Топ-5 в Food & Drink, рейтинг 4.9, 2 заказа на клиента в месяц, средний чек +120%. 40% новых клиентов сделали 3+ заказа за 90 дней."},
       {co:"Visa", num:"+3%", h:"Рост активации токенизации за 7 месяцев", p:"Кампании Apple Pay, Google Pay и Garmin Pay с банками и финтехами Центральной Азии. Платформы FIFA, F1, Disney и Олимпиады превратил в кофинансируемые кампании."},
       {co:"Банк Астаны", num:"22K", h:"Карт Warner Bros. за 3 недели", p:"Кобренды с Warner Bros., Wargaming и Rovio: 37 000 карт World of Tanks за 4 месяца, первые детские карты в Казахстане, «Лучший мобильный банк 2017»."}
     ],
@@ -310,8 +334,8 @@ const T = {
        b:["Руководил маркетингом в Казахстане, Кыргызстане, Узбекистане, Таджикистане, Туркменистане и Азербайджане","Растил активацию токенизации через совместные кампании с банками и финтехами","Адаптировал глобальные кампании в локальные планы по привлечению, активации и использованию; отвечал за ROI","Превращал платформы FIFA, Formula 1, Disney и Олимпиады в кофинансируемые кампании; управлял креативными, медийными и performance-агентствами"], r:["+3% активации токенов за 7 мес.","Бюджет $11M","6 рынков"]},
       {y:"2023 – 2024", t:"Директор по маркетингу и продажам", o:"8 Озер", s:"Маркетинг, продажи и досуг курорта и коттеджного городка Palm Valley.",
        b:["Руководил отделами маркетинга, продаж и досуга: 32 человека; выстроил стратегию, бюджет и структуру","Вёл весь микс: Meta, Google Ads, TikTok, Яндекс Директ, SEO, email, инфлюенсеры, OOH, DOOH, радио, ивенты","Развивал партнёрства с брендами и комьюнити-активации"], r:["Команда 32"]},
-      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh · онлайн-доставка продуктов", s:"С нуля построил маркетинг и go-to-market для запуска сервиса в Алматы.",
-       b:["Определил позиционирование и pricing-модель","Отвечал за всю воронку от awareness до referral, включая юнит-экономику и LTV","Построил омниканальную модель роста: performance, OOH, SEO, инфлюенсеры, CRM, лояльность","Управлял P&L, маркетинговыми инвестициями и эффективностью каналов"], r:["60K+ активных клиентов","Топ-5 Food & Drink, 4.9","ROMI 650%","2 заказа в месяц","Средний чек +120%"]},
+      {y:"2022 – 2023", t:"Head of Marketing", o:"Airba Fresh (Technodom Group) · онлайн-доставка продуктов", s:"С нуля построил маркетинг и go-to-market для запуска сервиса в Алматы.",
+       b:["Определил позиционирование и pricing-модель","Отвечал за всю воронку от awareness до referral, включая юнит-экономику и LTV","Построил омниканальную модель роста: performance, OOH, SEO, инфлюенсеры, CRM, лояльность","Собрал и вёл команду маркетинга из 7 человек; сделал программу лояльности, брендбук и айдентику","Построил дашборд эффективности каналов и CAC/LTV","Управлял P&L, маркетинговыми инвестициями и эффективностью каналов"], r:["60K+ активных клиентов","Топ-5 Food & Drink, 4.9","ROMI 650%","2 заказа в месяц","40% — 3+ заказа за 90 дней","Средний чек +120%","2M+ показов за 1-й квартал"]},
       {y:"2019 – 2022", t:"Senior Marketing & Sales Executive", o:"Air Astana", s:"Маркетинг на 7 международных рынках и запуск новых направлений.",
        b:["Вёл маркетинг в Великобритании, Турции, Таиланде, ОАЭ, Германии, Франции и Узбекистане","Запускал и продвигал новые направления (Черногория, Таиланд, Шри-Ланка, Китай) под цели по загрузке","Привлекал пассажиров через платные каналы и инфлюенсеров; продюсировал имиджевые ролики и активации"], r:["7 рынков"]},
       {y:"2016 – 2019", t:"Руководитель digital-маркетинга", o:"Банк Астаны", s:"Digital-маркетинг B2C-карт и кредитов, команда 7 человек.",
@@ -390,6 +414,7 @@ function render() {
   $("kpis").innerHTML = d.kpis.map(k => `<div class="kpi"><b>${esc(k[0])}</b><span>${esc(k[1])}</span></div>`).join("");
   $("facts").innerHTML = d.facts.map(f => `<div class="fact"><dt>${esc(f[0])}</dt><dd>${f[1]}</dd></div>`).join("");
   $("cases").innerHTML = d.cases.map(c => `<article class="case"><span class="co">${esc(c.co)}</span><span class="num">${esc(c.num)}</span><h3>${esc(c.h)}</h3><p>${esc(c.p)}</p></article>`).join("");
+  $("projects-list").innerHTML = d.projects.map(p => `<article class="proj"><span class="meta">${esc(p.m)}</span><h3>${esc(p.h)}</h3><p>${esc(p.p)}</p></article>`).join("");
   $("roles").innerHTML = d.roles.map(r => `<article class="role fade"><div class="when">${esc(r.y)}</div><div class="role-body">
       <h3>${esc(r.t)}</h3><p class="org">${esc(r.o)}</p>
       ${mode === "short" ? `<p class="sum">${esc(r.s)}</p>` : `<p class="sum">${esc(r.s)}</p><ul>${r.b.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`}
