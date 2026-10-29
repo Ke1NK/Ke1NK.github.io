@@ -90,7 +90,7 @@ h2{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,3vw,28px);l
 .case p{margin:0;color:var(--muted);font-size:14.5px}
 @media (max-width:760px){.cases{grid-template-columns:1fr}}
 
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}.proj .meta{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}.proj h3{margin:0;font-size:17px;font-weight:600;line-height:1.3}.proj p{margin:0;color:var(--muted);font-size:14.5px}@media (max-width:700px){.projects{grid-template-columns:1fr}}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}.proj .meta{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}.proj h3{margin:0;font-size:17px;font-weight:600;line-height:1.3}.proj p{margin:0;color:var(--muted);font-size:14.5px}.proj:last-child:nth-child(odd){grid-column:1 / -1}@media (max-width:700px){.projects{grid-template-columns:1fr}}
 .roles{display:flex;flex-direction:column;gap:0}
 .role{display:grid;grid-template-columns:120px 1fr;gap:20px;padding-block:22px;border-top:1px dashed var(--line)}
 .role:first-child{border-top:0;padding-top:4px}
@@ -256,7 +256,6 @@ const T = {
     casesTitle: "Selected results.", casesLabel: "Proof",
     projTitle: "Projects I'm proud of.", projLabel: "Campaigns",
     projects: [
-      {m:"Visa", h:"She's NEXT", p:"Three waves of a grant program for women entrepreneurs in Central Asia, across startup, existing business and IT categories."},
       {m:"Visa", h:"Tokenization with NINETY ONE", p:"Campaign with Kazakhstan's best-known pop band to move everyday payments from QR to Apple Pay, Google Pay and Garmin Pay."},
       {m:"Airba Fresh", h:"Launch event for 1,500 guests", p:"Grand opening with Technogym, Bosch, Samsung and LG as partners. Loyalty program, brand book and visual identity built for launch."},
       {m:"Air Astana · 2020", h:"International Women's Day flight", p:"Limited chocolate collection and an onboard jazz performance for women passengers, built around art and aviation."},
@@ -315,7 +314,6 @@ const T = {
     casesTitle: "Избранные результаты.", casesLabel: "Кейсы",
     projTitle: "Проекты, которыми горжусь.", projLabel: "Кампании",
     projects: [
-      {m:"Visa", h:"She's NEXT", p:"Три волны грантовой программы для женщин-предпринимателей Центральной Азии: стартапы, действующий бизнес и IT."},
       {m:"Visa", h:"Токенизация с NINETY ONE", p:"Кампания с самой известной поп-группой Казахстана, чтобы перевести повседневные платежи с QR на Apple Pay, Google Pay и Garmin Pay."},
       {m:"Airba Fresh", h:"Открытие на 1 500 гостей", p:"Гранд-опенинг с партнёрами Technogym, Bosch, Samsung и LG. К запуску сделали программу лояльности, брендбук и айдентику."},
       {m:"Air Astana · 2020", h:"Рейс к 8 Марта", p:"Лимитированная коллекция шоколада и джазовое выступление на борту для пассажирок, на стыке искусства и авиации."},
